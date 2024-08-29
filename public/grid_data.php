@@ -3,7 +3,7 @@ include 'src/Game.php';
 
 // Initialize the grid and player
 $player = new Player(100, 2, 4);
-$game = new Game(4, 7, $player);
+$game = new Game(9, 9, $player);
 
 // Prepare the blocks data for JSON output
 $blocks = [];
