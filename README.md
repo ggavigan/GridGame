@@ -1,6 +1,7 @@
 GridGame is a simple 2D game where players navigate a grid using WASD or arrow keys to move their character.</br>
 The game is built with a combination of Vue.js on the frontend and PHP on the backend, allowing for dynamic </br>
 interaction between the player, monsters, and the environment.</br>
+![image](https://github.com/user-attachments/assets/56b6394b-f319-4483-83ef-e8e255449878)
 
 <h2>Features</h2>
 2D Grid Movement: Players can move their character around a grid using the keyboard.</br>
