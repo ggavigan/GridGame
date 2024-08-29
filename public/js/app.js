@@ -6,7 +6,9 @@ new Vue({
     blocks: [],
     playerPos: { x: 4, y: 4 },
     gridX: 7,
-    gridY: 7
+    gridY: 7,
+    debounceDelay: 100, // Delay in milliseconds
+    debounceTimer: null
   },
   mounted() {
     // Fetch the grid data when the component is mounted
@@ -19,13 +21,19 @@ new Vue({
     
 
     // Add the keyboard event listener
-    window.addEventListener('keydown', this.handleKeyPress);
+    window.addEventListener('keydown', this.debounce(this.handleKeyPress, this.debounceDelay));
   },
   beforeDestroy() {
     // Remove the keyboard event listener when the component is destroyed
-    window.removeEventListener('keydown', this.handleKeyPress);
+    window.removeEventListener('keydown', this.debounce(this.handleKeyPress, this.debounceDelay));
   },
   methods: {
+    debounce(func, delay) {
+      return function(...args) {
+        clearTimeout(this.debounceTimer);
+        this.debounceTimer = setTimeout(() => func.apply(this, args), delay);
+      }.bind(this);
+    },
     handleKeyPress(event) {
       // Handle the movement based on the key pressed
       switch (event.key) {
