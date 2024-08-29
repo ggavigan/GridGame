@@ -1,9 +1,33 @@
 <?php
-include 'src/Game.php';
+require_once 'src/Game.php';
 
-// Initialize the grid and player
-$player = new Player(100, 10, 10);
-$game = new Game(21, 21, $player);
+// Initialize the grid and player positions
+$gameX = 9;
+$gameY = 9;
+
+$playerX = floor(($gameX / 2) + 1);
+$playerY = floor(($gameY / 2) + 1);
+// Create Player instance
+$player = new Player(100, $playerX, $playerY);
+
+// Define corners of the grid
+$corners = [
+    [0, 0],               // Top-left
+    [0, $gameY-1],      // Bottom-left
+    [$gameX-1, 0],      // Top-right
+    [$gameX-1, $gameY-1] // Bottom-right
+];
+
+// Randomly select one of the corners for monster spawn
+$randomCorner = $corners[array_rand($corners)];
+$monsterX = $randomCorner[0]+1;
+$monsterY = $randomCorner[1]+1;
+
+// Create Monster instance
+$monster = new Monster(100, $monsterX, $monsterY);
+
+// Create Game instance
+$game = new Game($gameX, $gameY, $player);
 
 // Prepare the blocks data for JSON output
 $blocks = [];
@@ -21,6 +45,7 @@ echo json_encode([
     'blocks' => $blocks,
     'gridX' => $game->grid->width,
     'gridY' => $game->grid->height,
-    'playerPos' => $player->position
+    'playerPos' => $player->getPosition(),
+    'monsterPos' => $monster->getPosition()
 ]);
 ?>
