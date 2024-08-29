@@ -28,9 +28,16 @@ impact the player's health or trigger events.</br>
 <li>Multiplayer Mode: Consider expanding the game to support multiple players on the same grid.</li>
 <li>AI Improvements: Enhance monster AI for more dynamic interactions, including chasing the player or avoiding hazards.</li>
 </ul>
+<h2>Installation</h2>
+You will need to download and install <strong>Docker</strong> to build the PHP image and containers.</br>
+Download Docker: https://www.docker.com/products/docker-desktop/ </br>
+There is currently a mySQL container that is not being used but could be used for save state persistence.</br>
+Install <strong>Git</strong> and Git clone the repo.</br>
+HTTPS:</br> <code>git clone https://github.com/ggavigan/GridGame.git</code>
+Download Git: https://git-scm.com/
 <h2>Contribution</h2>
 Contributions are welcome! If you have ideas, bug fixes, or enhancements, feel free to open an issue or submit a pull request.
 
 <h2>Credits</h2>
-Graphics: Custom blocks created by ggavigan. Additional images sourced from freepik.com.
+Graphics: Custom blocks created by ggavigan.</br>Additional images sourced from freepik.com.</br>
 Development: ggavigan, with support from the open-source community.
