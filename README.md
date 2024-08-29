@@ -18,6 +18,10 @@ Interactions: The environment can affect gameplay, with plans to add hazards and
 impact the player's health or trigger events.</br>
 <h2>Future Plans</h2>
 <ul>
+<li>Show HP somewhere</li>
+<li>Add menu screens</li>
+<li>Dynamic zooming, screen drag with mouse</li>
+<li>Fog of war?</li>
 <li>Hazards: Introduce hazards that will cause players and monsters to lose or gain HP.</li>
 <li>Interactive Environment: Enhance gameplay by making certain blocks affect the player or monster when stepped on, such as traps or power-ups.</li>
 <li>New Rooms: Add doors that players can walk through to enter new rooms or areas, dynamically rendering a new grid.</li>
