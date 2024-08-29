@@ -5,6 +5,7 @@ new Vue({
   data: {
     blocks: [],
     playerPos: { x: 4, y: 4 },
+    monsterPos: { x: 21, y: 1 },
     gridX: 7,
     gridY: 7,
     debounceDelay: 100, // Delay in milliseconds
@@ -15,6 +16,7 @@ new Vue({
     fetchGridData().then(data => {
       this.blocks = data.blocks;
       this.playerPos = data.playerPos || { x: 4, y: 4 };
+      this.monsterPos = data.monsterPos || { x: 21, y: 1 };
       this.gridX = data.gridX;
       this.gridY = data.gridY;
     });
@@ -89,16 +91,24 @@ new Vue({
           }
           break;
       }
+    },
+    getMonsterImage(x, y) {
+      return this.isMonsterHere(x, y) ? 'images/monster.png' : null;
+    },
+    isMonsterHere(x, y) {
+      return x === this.monsterPos.x && y === this.monsterPos.y;
     }
   },
   template: `
     <div>
       <div v-for="y in gridY+1" :key="'row-' + y" style="display: flex;">
         <div v-for="x in gridX+1" :key="'col-' + x" style="width: 40px; height: 40px; position: relative;">
-          <!-- Block image -->
-          <img v-if="getPlayerImage(x, y)" :src="getPlayerImage(x, y)" style="position: absolute; width: 100%; height: 100%;" />
-          <img v-if="getBlockImage(x, y)" :src="getBlockImage(x, y)" style="width: 100%; height: 100%;" />
           <!-- Player image -->
+          <img v-if="getPlayerImage(x, y)" :src="getPlayerImage(x, y)" style="position: absolute; width: 100%; height: 100%;" />
+          <!-- Monster image -->
+          <img v-if="getMonsterImage(x, y)" :src="getMonsterImage(x, y)" style="position: absolute; width: 100%; height: 100%;" />
+          <!-- Block image -->
+          <img v-if="getBlockImage(x, y)" :src="getBlockImage(x, y)" style="width: 100%; height: 100%;" />
         </div>
       </div>
     </div>

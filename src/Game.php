@@ -1,6 +1,7 @@
 <?php
-include 'src/Player.php';
-include 'src/Grid.php';
+require_once  'src/Player.php';
+require_once  'src/Monster.php';
+require_once  'src/Grid.php';
 
 class Game {
     public $grid;
