@@ -30,15 +30,19 @@ new Vue({
       // Handle the movement based on the key pressed
       switch (event.key) {
         case 'w':
+        case 'ArrowUp':
           this.movePlayer('up');
           break;
         case 's':
+        case 'ArrowDown':
           this.movePlayer('down');
           break;
         case 'a':
+        case 'ArrowLeft':
           this.movePlayer('left');
           break;
         case 'd':
+        case 'ArrowRight':
           this.movePlayer('right');
           break;
       }
