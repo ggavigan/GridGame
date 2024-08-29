@@ -1,5 +1,5 @@
 <?php
-include 'src/Block.php';
+require_once 'src/Block.php';
 
 class Grid {
     public $width;

@@ -5,7 +5,7 @@ new Vue({
   data: {
     blocks: [],
     playerPos: { x: 4, y: 4 },
-    monsterPos: { x: 21, y: 1 },
+    monsterPos: { x: 7, y: 1 },
     gridX: 7,
     gridY: 7,
     debounceDelay: 100, // Delay in milliseconds
