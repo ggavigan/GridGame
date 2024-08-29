@@ -9,8 +9,8 @@ class Grid {
     public function __construct($width, $height) {
         $this->width = $width;
         $this->height = $height;
-        for ($x = 0; $x < $width; $x++) {
-            for ($y = 0; $y < $height; $y++) {
+        for ($x = 1; $x < $width; $x++) {
+            for ($y = 1; $y < $height; $y++) {
                 $this->blocks[] = new Block($x, $y);
             }
         }
