@@ -35,7 +35,8 @@ foreach ($game->grid->blocks as $block) {
     $blocks[] = [
         'x' => $block->x,
         'y' => $block->y,
-        'type' => ($player->position->x === $block->x && $player->position->y === $block->y)
+        'type' => ($player->position->x === $block->x && $player->position->y === $block->y) ||
+            ($monster->position->x === $block->x && $monster->position->y === $block->y)
             ? 0
             : $block->type
     ];
