@@ -2,8 +2,8 @@
 require_once 'src/Game.php';
 
 // Initialize the grid and player positions
-$gameX = 9;
-$gameY = 9;
+$gameX = 20;
+$gameY = 20;
 
 $playerX = (int) floor(($gameX / 2) + 1);
 $playerY = (int) floor(($gameY / 2) + 1);
@@ -27,7 +27,7 @@ $monsterY = $randomCorner[1]+1;
 $monster = new Monster(100, $monsterX, $monsterY);
 
 // Create Game instance
-$game = new Game($gameX, $gameY, $player);
+$game = new Game($gameX, $gameY, $player, $monster);
 
 // Prepare the blocks data for JSON output
 $blocks = [];
