@@ -5,8 +5,8 @@ require_once 'src/Game.php';
 $gameX = 9;
 $gameY = 9;
 
-$playerX = floor(($gameX / 2) + 1);
-$playerY = floor(($gameY / 2) + 1);
+$playerX = (int) floor(($gameX / 2) + 1);
+$playerY = (int) floor(($gameY / 2) + 1);
 // Create Player instance
 $player = new Player(100, $playerX, $playerY);
 
@@ -35,7 +35,10 @@ foreach ($game->grid->blocks as $block) {
     $blocks[] = [
         'x' => $block->x,
         'y' => $block->y,
-        'type' => $block->type
+        'type' => ($player->position->x === $block->x && $player->position->y === $block->y) ||
+            ($monster->position->x === $block->x && $monster->position->y === $block->y)
+            ? 0
+            : $block->type
     ];
 }
 

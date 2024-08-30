@@ -5,7 +5,7 @@ new Vue({
   data: {
     blocks: [],
     playerPos: { x: 4, y: 4 },
-    monsterPos: { x: 21, y: 1 },
+    monsterPos: { x: 7, y: 1 },
     gridX: 7,
     gridY: 7,
     debounceDelay: 100, // Delay in milliseconds
@@ -67,26 +67,30 @@ new Vue({
     isPlayerHere(x, y) {
       return x === this.playerPos.x && y === this.playerPos.y;
     },
+    isBlock0Here(x, y) {
+      const block = this.blocks.find(block => block.x === x && block.y === y);
+      return block && block.type === 0;
+    },
     movePlayer(direction) {
       // Update the player's position
       switch (direction) {
         case 'up':
-          if (this.playerPos.y > 1) {
+          if (this.playerPos.y > 1 && this.isBlock0Here(this.playerPos.x, this.playerPos.y - 1)) {
             this.playerPos.y--;
           }
           break;
         case 'down':
-          if (this.playerPos.y < this.gridY) {
+          if (this.playerPos.y < this.gridY && this.isBlock0Here(this.playerPos.x, this.playerPos.y + 1)) {
             this.playerPos.y++;
           }
           break;
         case 'left':
-          if (this.playerPos.x > 1) {
+          if (this.playerPos.x > 1 && this.isBlock0Here(this.playerPos.x - 1, this.playerPos.y)) {
             this.playerPos.x--;
           }
           break;
         case 'right':
-          if (this.playerPos.x < this.gridX) {
+          if (this.playerPos.x < this.gridX && this.isBlock0Here(this.playerPos.x + 1, this.playerPos.y)) {
             this.playerPos.x++;
           }
           break;
